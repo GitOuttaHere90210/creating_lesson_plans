@@ -3,7 +3,7 @@
 <head>
     <title>UFLI Lesson 10 PPT Generator</title>
     <meta charset="UTF-8">
-    <script src="./pptxgen.min.js"></script>
+    <script src="https://gitouttahere90210.github.io/creating_lesson_plans/pptxgen.min.js"></script>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -43,8 +43,7 @@
     <p>Click the buttons to generate and download PPTX files.</p>
     <div id="loading" class="loading">Loading PptxGenJS library...</div>
     <div id="error" class="error">
-        Error: PptxGenJS failed to load. Ensure 'pptxgen.min.js' is in X:\prog_project\UFLI Foundations_ 148 Lesson Plans - Grok_files (exact name: pptxgen.min.js, case-sensitive).
-        Run using a local server (e.g., `http-server` or `python -m http.server 8000`). Check console (F12 > Console) for details.
+        Error: PptxGenJS failed to load. Ensure 'pptxgen.min.js' is accessible at https://gitouttahere90210.github.io/creating_lesson_plans/pptxgen.min.js. Check console (F12 > Console) for details.
     </div>
     <div id="errorLog"></div>
     <button id="testBtn" onclick="testLibrary()" disabled>Test PptxGenJS</button>
@@ -64,7 +63,7 @@
             if (typeof PptxGenJS === 'undefined') {
                 document.getElementById('loading').style.display = 'none';
                 document.getElementById('error').style.display = 'block';
-                logError('PptxGenJS not loaded. Verify "pptxgen.min.js" is in X:\\prog_project\\UFLI Foundations_ 148 Lesson Plans - Grok_files. Run via a local server (http-server or python -m http.server 8000). Check console (F12).');
+                logError('PptxGenJS not loaded. Verify "pptxgen.min.js" is accessible at https://gitouttahere90210.github.io/creating_lesson_plans/pptxgen.min.js. Check console (F12).');
                 return false;
             }
             document.getElementById('loading').style.display = 'none';
