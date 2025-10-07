@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PptxGenJS Basic Slide Demo</title>
+    <script src="https://cdn.jsdelivr.net/npm/pptxgenjs@3.12.0/dist/pptxgen.min.js"></script>
+</head>
+<body>
+    <h1>PptxGenJS Basic Slide Demo</h1>
+    <button onclick="generatePPTX()">Generate and Download PPTX</button>
+    <script>
+        function generatePPTX() {
+            let pptx = new PptxGenJS();
+            let slide = pptx.addSlide();
+            slide.addText("Hello World from PptxGenJS!", { x: 1, y: 1, color: "363636" });
+            pptx.writeFile({ fileName: "ExamplePPTX.pptx" });
+        }
+    </script>
+</body>
+</html>
