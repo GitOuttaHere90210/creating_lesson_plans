@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+     <html>
+     <head>
+         <title>Test PptxGenJS</title>
+         <script src="https://cdn.jsdelivr.net/npm/pptxgenjs@3.12.0/dist/pptxgen.min.js"></script>
+     </head>
+     <body>
+         <h1>Test PptxGenJS</h1>
+         <button onclick="test()">Test Library</button>
+         <script>
+             function test() {
+                 if (typeof PptxGenJS === 'undefined') {
+                     alert('PptxGenJS not loaded!');
+                 } else {
+                     let pptx = new PptxGenJS();
+                     alert('PptxGenJS loaded! Version: ' + pptx.version);
+                 }
+             }
+         </script>
+     </body>
+     </html>
