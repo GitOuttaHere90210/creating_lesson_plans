@@ -259,8 +259,6 @@
 ```
 
 ### Instructions to Update on GitHub
-Since you don’t have a local repository, update `generate_ufli_lesson_10_ppt_fixed.html` directly in your GitHub repository using the web interface:
-
 1. **Navigate to the File**:
    - Go to `https://github.com/gitouttahere90210/creating_lesson_plans`.
    - Click on the `creating_lesson_plans` directory.
@@ -291,12 +289,12 @@ Since you don’t have a local repository, update `generate_ufli_lesson_10_ppt_f
      - The “Loading PptxGenJS library...” message should disappear, and no error should appear.
    - Click “Test PptxGenJS” to confirm the library loads (alert: “PptxGenJS loaded successfully! Version: 3.12.0”).
    - Click the other buttons to generate:
-     - `UFLI_Lesson_10_Slides.pptx` (10 slides for lesson steps)
+     - `UFLI_Lesson_10_Slides.pptx` (10 slides)
      - `UFLI_Lesson_10_Word_Cards.pptx` (40 slides, 20 words front/back)
      - `UFLI_Lesson_10_Letter_Tiles.pptx` (3 slides, 12 tiles)
 
 ### Testing Locally (Optional)
-If you want to test locally to ensure compatibility:
+If you want to test locally:
 1. **Download the Updated HTML**:
    - After committing, download the updated `generate_ufli_lesson_10_ppt_fixed.html` from `https://github.com/gitouttahere90210/creating_lesson_plans/raw/main/generate_ufli_lesson_10_ppt_fixed.html`.
    - Place it in `X:\prog_project\UFLI Foundations_ 148 Lesson Plans - Grok_files`, overwriting the existing file.
@@ -307,40 +305,39 @@ If you want to test locally to ensure compatibility:
      cd "X:\prog_project\UFLI Foundations_ 148 Lesson Plans - Grok_files" && py -m http.server 8000
      ```
    - Access `http://localhost:8000/generate_ufli_lesson_10_ppt_fixed.html`.
-   - The page should work using the CDN-hosted `pptxgen.min.js`, requiring no local copy.
+   - The page should work using the CDN-hosted `pptxgen.min.js`.
 
 ### Troubleshooting
 If the error persists:
 1. **Check Browser Console**:
    - Open `https://gitouttahere90210.github.io/creating_lesson_plans/generate_ufli_lesson_10_ppt_fixed.html`.
-   - Press F12 > Console and look for errors, e.g.:
-     - `Failed to load resource: the server responded with a status of 404 (Not Found) for https://cdn.jsdelivr.net/npm/pptxgenjs@3.12.0/dist/pptxgen.min.js`
+   - Press F12 > Console and share any errors, e.g.:
+     - `Failed to load resource: ... for https://cdn.jsdelivr.net/npm/pptxgenjs@3.12.0/dist/pptxgen.min.js`
      - `Uncaught ReferenceError: PptxGenJS is not defined`
-   - Check the Network tab (F12 > Network) for the status of the `pptxgen.min.js` request (should be `200 OK`).
+   - Check the Network tab for the status of the `pptxgen.min.js` request (should be `200 OK`).
 
-2. **Verify CDN Accessibility**:
-   - Open `https://cdn.jsdelivr.net/npm/pptxgenjs@3.12.0/dist/pptxgen.min.js` in your browser. It should download or display the JavaScript content starting with `/* PptxGenJS 3.12.0 ... */`.
+2. **Verify CDN**:
+   - Open `https://cdn.jsdelivr.net/npm/pptxgenjs@3.12.0/dist/pptxgen.min.js` in your browser. It should display the JavaScript content starting with `/* PptxGenJS 3.12.0 ... */`.
    - If it fails, try an alternative CDN:
      ```html
      <script src="https://gitcdn.link/repo/mgulick/pptxgenjs/master/dist/pptxgen.min.js"></script>
      ```
-     And update the error message:
+     Update the error message and `checkLibraryLoaded` function accordingly:
      ```html
      <div id="error" class="error">
          Error: PptxGenJS failed to load from CDN. Check your internet connection or try again later. Open console (F12 > Console) for details.
      </div>
      ```
-     Update the `checkLibraryLoaded` function:
      ```javascript
      logError('PptxGenJS failed to load from https://gitcdn.link/repo/mgulick/pptxgenjs/master/dist/pptxgen.min.js. Check console (F12).');
      ```
 
 3. **Clear Browser Cache**:
    - Press `Ctrl+Shift+R` to hard refresh.
-   - Or clear the browser cache in settings.
+   - Or clear the cache in browser settings.
 
-4. **Test with a Minimal HTML File**:
-   - If the issue persists, create a test file to isolate the problem. Upload this as `test_pptxgen.html` to your GitHub repository:
+4. **Test with a Minimal HTML**:
+   - Upload this as `test_pptxgen.html` to your repository:
      ```html
      <!DOCTYPE html>
      <html>
@@ -364,11 +361,9 @@ If the error persists:
      </body>
      </html>
      ```
-   - Commit via GitHub’s web interface.
    - Test at `https://gitouttahere90210.github.io/creating_lesson_plans/test_pptxgen.html`.
-   - If the “Test Library” button shows “PptxGenJS loaded! Version: 3.12.0,” the CDN works, and the issue is specific to the original HTML.
 
 ### Why This Should Work
-Using the CDN (`https://cdn.jsdelivr.net/npm/pptxgenjs@3.12.0/dist/pptxgen.min.js`) eliminates reliance on the GitHub-hosted `pptxgen.min.js`, which may be affected by caching, CORS, or propagation issues. The CDN is reliable, widely used, and serves the correct MIME type (`application/javascript`). The simplified error message avoids confusion with local paths, and the core functionality remains unchanged.
+The CDN (`https://cdn.jsdelivr.net/npm/pptxgenjs@3.12.0/dist/pptxgen.min.js`) is reliable, serves the correct MIME type, and avoids GitHub Pages issues like caching or CORS. The updated error message is clear, and the functionality remains intact.
 
-Please update the file and let me know if the error persists, along with any browser console errors (F12 > Console) or Network tab details. I’m confident this approach will resolve the issue and allow you to generate the UFLI Lesson 10 PowerPoint files.
+Please update the file and share any remaining console errors or Network tab details if the issue persists. This should resolve the problem and allow you to generate the UFLI Lesson 10 PowerPoint files.
